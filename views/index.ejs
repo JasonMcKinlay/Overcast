@@ -42,9 +42,9 @@
     <section class="top-banner">
         <div class="container px-4 py-5 mx-5 my-5 text-auto col-lg-6">
           <h1 class="heading display-5 fw-bold text-body-emphasis">Let's check the weather.</h1>
-          <form class="d-flex align-items-center">
+          <form class="d-flex align-items-center" method="POST">
             <div class="input-group" style="width: 50%">
-              <input type="text" placeholder="Search for a city" class="form-control form-control-dark text-bg-dark col-lg-6" autofocus>
+              <input type="text" placeholder="Search for a city" class="form-control form-control-dark text-bg-dark col-lg-6" name="cityInput" autofocus>
               <button type="submit" class="btn btn-outline-primary px-4">Submit</button>
             </div>
             <span class="msg ms-3"></span>
@@ -111,7 +111,6 @@
                     <h1 class="align-items-center d-flex fw-bold fs-1">67°F</h1>
                 </div>
             </div>
-            
         </div>
     </div>
 
