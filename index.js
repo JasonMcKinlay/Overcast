@@ -1,8 +1,10 @@
 import express from "express";
 import bodyParser from "body-parser";
+import "dotenv/config";
 
 const app = express();
 const port = 3000;
+const API_KEY = process.env.API_KEY;
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
