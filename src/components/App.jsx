@@ -6,10 +6,12 @@ function App() {
     return (
         <div>
             <Header />
-            <ul className="cities row justify-content-center">
-                <Card />
-                <Card />
-                <Card />
+            <ul className="cities">
+                <div class="row justify-content-center">
+                    <Card />
+                    <Card />
+                    <Card />
+                </div>
             </ul>
         </div>
     );
