@@ -3,14 +3,25 @@ import Slide from "@mui/material/Slide";
 import Fade from "@mui/material/Fade";
 
 function Header(props) {
-    const [cards, setCards] = useState({
-        title: ""
+    const [text, setText] = useState({
+        city: ""
     });
 
-    function submitCard(event) {
-        props.onAdd(card);
-        setCards({
-            title: ""
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setText(prevText => {
+            return {
+                ...prevText,
+                name: value
+            };
+        });
+        console.log(name, value);
+    }
+
+    function submitText(event) {
+        props.onAdd(text);
+        setText({
+            city: ""
         });
         event.preventDefault();
     }
@@ -22,14 +33,20 @@ function Header(props) {
             <Fade in={true} timeout={{enter: 1000}}>
             <div className="py-5 mx-5 my-5 text-auto col-lg-6 align-items-center justify-content-center">
                 <h1 className="heading display-5 fw-bold text-body-emphasis text-center">Let's check the weather.</h1>
-                    <form className="d-flex align-items-center justify-content-center" method="POST">
-                        <div className="input-group" style={{width: "50%"}}>
-                            <input type="text" placeholder="Search for a city" className="form-control form-control-dark text-bg-dark col-lg-6" name="cityInput" />
-                            <button type="submit" className="btn btn-outline-primary px-4" onClick={submitCard}>Submit</button>
-                        </div>
-                        <span className="msg ms-3"></span>
-                    </form>
-          
+                <div className="d-flex align-items-center justify-content-center">
+                    <div className="input-group" style={{width: "50%"}}>
+                        <input 
+                            type="text" 
+                            placeholder="Search for a city" 
+                            className="form-control form-control-dark text-bg-dark col-lg-6" 
+                            name="cityInput" 
+                            value={text.city}
+                            onChange={handleChange}
+                        />
+                        <button type="submit" className="btn btn-outline-primary px-4" onClick={submitText}>Submit</button>
+                    </div>
+                    <span className="msg ms-3"></span>
+                </div>
             </div>
             </Fade>
             {/* </Slide> */}

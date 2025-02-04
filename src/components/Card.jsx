@@ -14,7 +14,7 @@ function Card(props) {
                 </div>
                     
                 <div className="col-md-8 ps-3">
-                    <h4 className="align-items-center d-flex">{props.title}</h4>
+                    <h4 className="align-items-center d-flex">{props.city}</h4>
                     <h1 className="align-items-center d-flex fw-bold fs-1">67°F</h1>
                 </div>
             </li>

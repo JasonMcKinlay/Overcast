@@ -28,16 +28,16 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html", // Use public/index.html as the template
+      template: "./public/index.html",
     }),
   ],
   resolve: {
-    extensions: [".js", ".jsx"], // Resolve these extensions in imports
+    extensions: [".js", ".jsx"],
   },
-  mode: "development", // Dev mode for debugging
+  mode: "development",
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"), // Serve files from dist folder
+      directory: path.resolve(__dirname, "dist"), 
     },
     port: 8080, // Dev server runs on localhost:8080
     hot: true, // Enable hot module replacement
