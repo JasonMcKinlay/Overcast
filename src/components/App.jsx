@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header.jsx";
 import Card from "./Card.jsx";
+// const API_KEY = process.env.REACT_APP_API_KEY; 
 
 function App() {
     const [cards, setCards] = useState([]);
@@ -8,7 +9,7 @@ function App() {
     function addCard(newCard) {
         setCards(prevCards => {
             return([...prevCards, newCard]);
-        })
+        });
     }
 
     function deleteCard(id) {
@@ -29,7 +30,7 @@ function App() {
                             <Card 
                             key={index}
                             id={index}
-                            title="Northumberland"
+                            city={cardItem.city}
                             onDelete={deleteCard}
                             />
                         )
