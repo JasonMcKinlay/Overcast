@@ -12,10 +12,9 @@ function Header(props) {
         setText(prevText => {
             return {
                 ...prevText,
-                name: value
+                [name]: value
             };
         });
-        console.log(name, value);
     }
 
     function submitText(event) {
@@ -38,8 +37,8 @@ function Header(props) {
                         <input 
                             type="text" 
                             placeholder="Search for a city" 
-                            className="form-control form-control-dark text-bg-dark col-lg-6" 
-                            name="cityInput" 
+                            className="form-control col-lg-6" 
+                            name="city" 
                             value={text.city}
                             onChange={handleChange}
                         />
