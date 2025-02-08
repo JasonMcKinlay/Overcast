@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Header from "./Header.jsx";
 import Card from "./Card.jsx";
-// const API_KEY = process.env.REACT_APP_API_KEY; 
+import process from "process";
+// import dotenv from "dotenv";
+import axios from "axios";
+const API_KEY = process.env.REACT_APP_API_KEY; 
 
 function App() {
     const [cards, setCards] = useState([]);
 
     function addCard(newCard) {
+        //const url = `https://api.openweathermap.org/data/2.5/weather?q=${req.body.cityInput}&appid=${API_KEY}&units=imperial`;
         setCards(prevCards => {
             return([...prevCards, newCard]);
         });
+        console.log("TEST:", API_KEY);
     }
 
     function deleteCard(id) {
@@ -24,7 +29,7 @@ function App() {
         <div>
             <Header onAdd={addCard} />
             <ul className="cities">
-                <div class="col-lg-12 row justify-content-center">
+                <div className="col-lg-12 row justify-content-center">
                     {cards.map((cardItem, index) => {
                         return (
                             <Card 
