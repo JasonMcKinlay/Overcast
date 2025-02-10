@@ -1,6 +1,13 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import webpack from "webpack";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+console.log("Loaded API Key:", process.env.REACT_APP_API_KEY);
+
 
 // Define __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -29,6 +36,9 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new webpack.DefinePlugin({
+      'process.env.REACT_APP_API_KEY': JSON.stringify(process.env.REACT_APP_API_KEY),
     }),
   ],
   resolve: {
