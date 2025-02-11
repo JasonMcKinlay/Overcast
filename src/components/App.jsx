@@ -9,6 +9,12 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 function App() {
     const [cards, setCards] = useState([]);
 
+    function toTitleCase(str) {
+        return str.toLowerCase().split(' ').map(function (word) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join(' ');
+      }
+
     function addCard(newCard) {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${newCard.city}&appid=${API_KEY}&units=imperial`;
         axios.get(url)
@@ -20,12 +26,15 @@ function App() {
             const feelsLike = response.data.main.feelsLike;
             const windSpeed = response.data.wind.speed;
             const icon = `https://openweathermap.org/img/wn/${
-                response.data.weather.icon
+                response.data.weather[0].icon
             }@2x.png`;
             const description = response.data.weather[0].description;
-        
+
+        newCard.country = country;
         newCard.temp = Math.round(temp);
-        newCard.description = description.toUpperCase();
+        newCard.icon = icon;
+        newCard.description = toTitleCase(description);
+        
         setCards(prevCards => {
             return([...prevCards, newCard]);
         });
@@ -51,6 +60,8 @@ function App() {
                             key={index}
                             id={index}
                             city={cardItem.city}
+                            country={cardItem.country}
+                            icon={cardItem.icon}
                             temp={cardItem.temp}
                             description={cardItem.description}
                             onDelete={deleteCard}

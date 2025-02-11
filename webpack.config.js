@@ -6,9 +6,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log("Loaded API Key:", process.env.REACT_APP_API_KEY);
-
-
 // Define __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
