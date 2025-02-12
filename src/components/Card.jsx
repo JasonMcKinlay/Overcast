@@ -16,8 +16,15 @@ function Card(props) {
                 </div>
                     
                 <div className="col-md-8 ps-3">
-                    <h4 className="align-items-center d-flex">{props.city}</h4>
+                    <div id="location" className="d-flex align-items-center">
+                        <h4 className="align-items-center my-1">{props.city}</h4>
+                        <span className="mx-2 badge bg-primary">{props.country}</span>
+                    </div>
                     <h1 className="align-items-center d-flex fw-bold fs-1">{props.temp}°F</h1>
+                    <div id="misc" className="mt-4">
+                        <h6 className="fw-lighter">Feels like: {props.feelsLike}°F</h6>
+                        <h6 className="fw-lighter">Wind speed: {props.windSpeed} mph</h6>
+                    </div>
                 </div>
             </li>
     );

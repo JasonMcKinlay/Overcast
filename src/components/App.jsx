@@ -16,14 +16,14 @@ function App() {
       }
 
     function addCard(newCard) {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${newCard.city}&appid=${API_KEY}&units=imperial`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${toTitleCase(newCard.city)}&appid=${API_KEY}&units=imperial`;
         axios.get(url)
         .then(function (response) {
             console.log(response.data);
             const city = response.data.name;
             const country = response.data.sys.country;
             const temp = response.data.main.temp;
-            const feelsLike = response.data.main.feelsLike;
+            const feelsLike = response.data.main.feels_like;
             const windSpeed = response.data.wind.speed;
             const icon = `https://openweathermap.org/img/wn/${
                 response.data.weather[0].icon
@@ -34,6 +34,8 @@ function App() {
         newCard.temp = Math.round(temp);
         newCard.icon = icon;
         newCard.description = toTitleCase(description);
+        newCard.feelsLike = Math.round(feelsLike);
+        newCard.windSpeed = Math.round(windSpeed);
         
         setCards(prevCards => {
             return([...prevCards, newCard]);
@@ -59,11 +61,13 @@ function App() {
                             <Card 
                             key={index}
                             id={index}
-                            city={cardItem.city}
+                            city={toTitleCase(cardItem.city)}
                             country={cardItem.country}
                             icon={cardItem.icon}
                             temp={cardItem.temp}
                             description={cardItem.description}
+                            feelsLike={cardItem.feelsLike}
+                            windSpeed={cardItem.windSpeed}
                             onDelete={deleteCard}
                             />
                         )
