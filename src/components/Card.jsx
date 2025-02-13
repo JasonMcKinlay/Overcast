@@ -1,6 +1,8 @@
 import React from "react";
 
 function Card(props) {
+
+
     return (
             <li className="col d-inline-flex px-2 py-5 mb-5 mx-3 text-auto col-lg-3 border rounded-3 bg-body-tertiary justify-content-center">
                 <div className="col-md-4 d-flex flex-column align-items-center justify-content-center">

@@ -43,9 +43,14 @@ export default {
   },
   mode: "development",
   devServer: {
-    static: {
-      directory: path.resolve(__dirname, "dist"), 
-    },
+    static: [
+      {
+        directory: path.resolve(__dirname, "dist"), 
+      },
+      {
+        directory: path.resolve(__dirname, "public"),
+      }
+    ],
     port: 8080, // Dev server runs on localhost:8080
     hot: true, // Enable hot module replacement
     open: true, // Automatically open the browser

@@ -4,6 +4,7 @@ import Card from "./Card.jsx";
 import process from "process";
 // import dotenv from "dotenv";
 import axios from "axios";
+// import weatherIcon from "../../public/assets/weatherIcon.svg";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       }
 
     function addCard(newCard) {
+        // console.log(weatherIcon);
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${toTitleCase(newCard.city)}&appid=${API_KEY}&units=imperial`;
         axios.get(url)
         .then(function (response) {
@@ -25,9 +27,10 @@ function App() {
             const temp = response.data.main.temp;
             const feelsLike = response.data.main.feels_like;
             const windSpeed = response.data.wind.speed;
-            const icon = `https://openweathermap.org/img/wn/${
-                response.data.weather[0].icon
-            }@2x.png`;
+            // const icon = `https://openweathermap.org/img/wn/${
+            //     response.data.weather[0].icon
+            // }@2x.png`;
+            const icon = `/assets/weatherIcon.svg`;
             const description = response.data.weather[0].description;
 
         newCard.country = country;
