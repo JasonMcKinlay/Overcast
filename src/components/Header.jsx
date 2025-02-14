@@ -34,9 +34,10 @@ function Header(props) {
 
     return (
         <div className="top-banner container d-flex justify-content-center">
+            
             {/* <Slide in={true} direction="down"> */}
             <Fade in={true} timeout={{enter: 1000}}>
-            <div className="py-5 mx-5 my-5 text-auto col-lg-6 align-items-center justify-content-center">
+            <div className="pb-5 mx-5 mb-5 text-auto col-lg-6 align-items-center justify-content-center">
                 <h1 className="heading display-5 fw-bold text-body-emphasis text-center">Let's check the weather.</h1>
                 <div className="d-flex align-items-center justify-content-center">
                     <div className="input-group" style={{width: "50%"}}>

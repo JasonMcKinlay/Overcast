@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Logo from "./Logo.jsx";
 import Header from "./Header.jsx";
 import Card from "./Card.jsx";
 import process from "process";
@@ -54,7 +55,8 @@ function App() {
 
     return (
         <div>
-            <Header onAdd={addCard} />
+            <Logo />
+            <Header onAdd={addCard} className="py-5" />
             <ul className="cities">
                 <div className="col-lg-12 row justify-content-center">
                     {cards.map((cardItem, index) => {
