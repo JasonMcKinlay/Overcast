@@ -30,7 +30,7 @@ function App() {
             // const icon = `https://openweathermap.org/img/wn/${
             //     response.data.weather[0].icon
             // }@2x.png`;
-            const icon = `/assets/weatherIcon.svg`;
+            const icon = `/assets/${response.data.weather[0].icon}.png`;
             const description = response.data.weather[0].description;
 
         newCard.country = country;
