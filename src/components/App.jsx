@@ -27,12 +27,10 @@ function App() {
             const temp = response.data.main.temp;
             const feelsLike = response.data.main.feels_like;
             const windSpeed = response.data.wind.speed;
-            // const icon = `https://openweathermap.org/img/wn/${
-            //     response.data.weather[0].icon
-            // }@2x.png`;
             const icon = `/assets/${response.data.weather[0].icon}.png`;
             const description = response.data.weather[0].description;
 
+        newCard.city = city;
         newCard.country = country;
         newCard.temp = Math.round(temp);
         newCard.icon = icon;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slide from "@mui/material/Slide";
 import Fade from "@mui/material/Fade";
 
@@ -25,6 +25,12 @@ function Header(props) {
         event.preventDefault();
     }
 
+    function handleKeyDown(event) {
+        if (event.key === "Enter") {
+            submitText(event);
+        }
+    }
+
 
     return (
         <div className="top-banner container d-flex justify-content-center">
@@ -41,6 +47,7 @@ function Header(props) {
                             name="city" 
                             value={text.city}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
                         />
                         <button type="submit" className="btn btn-outline-primary px-4" onClick={submitText}>Submit</button>
                     </div>
