@@ -6,7 +6,7 @@ function Logo() {
     return (
         <div>
             <Fade in={true} timeout={{enter: 1000}}>
-                <div className="py-5 d-flex justify-content-center align-items-center">
+                <div className="py-4 d-flex justify-content-center align-items-center">
                     <img src="/assets/header.png" style={{width: "10%", height: "10%"}}></img>
                 </div>
             </Fade>

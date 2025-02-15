@@ -6,6 +6,7 @@ function Header(props) {
     const [text, setText] = useState({
         city: ""
     });
+    const [opacity, setOpacity] = useState(0);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -18,11 +19,16 @@ function Header(props) {
     }
 
     function submitText(event) {
-        props.onAdd(text);
-        setText({
-            city: ""
-        });
         event.preventDefault();
+        
+        if (text.city.trim() === "") {
+            setOpacity(1);
+            return;
+        }
+
+        setOpacity(0);
+        props.onAdd(text);
+        setText({ city: "" });
     }
 
     function handleKeyDown(event) {
@@ -31,13 +37,25 @@ function Header(props) {
         }
     }
 
+    function handleClick() {
+        setOpacity(0);
+    }
+
 
     return (
-        <div className="top-banner container d-flex justify-content-center">
-            
+        <div className="top-banner container justify-content-center">
+            <div class="mx-auto col-lg-3 alert alert-primary alert-dismissible fade show" role="alert" style={{ opacity: opacity }}>
+                City name not found.
+                <button 
+                type="button" 
+                class="btn-close" 
+                data-bs-dismiss="alert" 
+                aria-label="Close" 
+                onClick={handleClick}></button>
+            </div>
             {/* <Slide in={true} direction="down"> */}
             <Fade in={true} timeout={{enter: 1000}}>
-            <div className="pb-5 mx-5 mb-5 text-auto col-lg-6 align-items-center justify-content-center">
+            <div className="pb-5 mx-5 mb-5 text-auto col-lg-6 align-items-center justify-content-center mx-auto">
                 <h1 className="heading display-5 fw-bold text-body-emphasis text-center">Let's check the weather.</h1>
                 <div className="d-flex align-items-center justify-content-center">
                     <div className="input-group" style={{width: "50%"}}>
