@@ -24,8 +24,6 @@ function App() {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${toTitleCase(newCard.city)}&appid=${API_KEY}&units=imperial`;
         try {
             const response = await axios.get(url);
-
-            console.log(response.data);
             const city = response.data.name;
             const country = response.data.sys.country;
             const temp = response.data.main.temp;
@@ -48,7 +46,7 @@ function App() {
             
         }
         catch (e) {
-            handleError(e);
+            handleError(e, newCard.city);
         }
     }
 
@@ -60,15 +58,15 @@ function App() {
         });
     }
 
-    function handleError(error) {
-        if (error.response && error.response.status === 404) {
+    function handleError(error, text) {
+        if (error.response && error.response.status === 404 && text != null) {
             setErrorMsg("City not found. Please try again.");
             setErrorOpacity(1);
             console.log(error);
         }
         else {
-            // setErrorMsg("");
-            // setErrorOpacity(1);
+            setErrorMsg("Please enter in a city.");
+            setErrorOpacity(1);
             console.log(error);
         }
     }

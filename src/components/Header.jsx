@@ -6,7 +6,7 @@ function Header(props) {
     const [text, setText] = useState({
         city: ""
     });
-    const [opacity, setOpacity] = useState(0);
+    // const [opacity, setOpacity] = useState(0);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -21,12 +21,12 @@ function Header(props) {
     function submitText(event) {
         event.preventDefault();
         
-        if (text.city.trim() === "") {
-            setOpacity(1);
-            return;
-        }
+        // if (text.city.trim() === "") {
+        //     // setOpacity(1);
+        //     return;
+        // }
 
-        setOpacity(0);
+        // setOpacity(0);
         props.onAdd(text);
         setText({ city: "" });
     }
@@ -37,9 +37,9 @@ function Header(props) {
         }
     }
 
-    function handleClick() {
-        setOpacity(0);
-    }
+    // function handleClick() {
+    //     setOpacity(0);
+    // }
 
 
     return (
