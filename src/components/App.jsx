@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Logo from "./Logo.jsx";
 import Header from "./Header.jsx";
 import Card from "./Card.jsx";
+import Error from "./Error.jsx";
 import process from "process";
 // import dotenv from "dotenv";
 import axios from "axios";
@@ -10,6 +11,8 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
     const [cards, setCards] = useState([]);
+    const [errorMsg, setErrorMsg] = useState("City not found. Please try again.");
+    const [errorOpacity, setErrorOpacity] = useState(0);
 
     function toTitleCase(str) {
         return str.toLowerCase().split(' ').map(function (word) {
@@ -17,11 +20,11 @@ function App() {
         }).join(' ');
       }
 
-    function addCard(newCard) {
-        // console.log(weatherIcon);
+    async function addCard(newCard) {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${toTitleCase(newCard.city)}&appid=${API_KEY}&units=imperial`;
-        axios.get(url)
-        .then(function (response) {
+        try {
+            const response = await axios.get(url);
+
             console.log(response.data);
             const city = response.data.name;
             const country = response.data.sys.country;
@@ -31,18 +34,22 @@ function App() {
             const icon = `/assets/${response.data.weather[0].icon}.png`;
             const description = response.data.weather[0].description;
 
-        newCard.city = city;
-        newCard.country = country;
-        newCard.temp = Math.round(temp);
-        newCard.icon = icon;
-        newCard.description = toTitleCase(description);
-        newCard.feelsLike = Math.round(feelsLike);
-        newCard.windSpeed = Math.round(windSpeed);
-        
-        setCards(prevCards => {
-            return([...prevCards, newCard]);
-        });
-    });
+            newCard.city = city;
+            newCard.country = country;
+            newCard.temp = Math.round(temp);
+            newCard.icon = icon;
+            newCard.description = toTitleCase(description);
+            newCard.feelsLike = Math.round(feelsLike);
+            newCard.windSpeed = Math.round(windSpeed);
+            
+            setCards(prevCards => {
+                return([...prevCards, newCard]);
+            });
+            
+        }
+        catch (e) {
+            handleError(e);
+        }
     }
 
     function deleteCard(id) {
@@ -53,9 +60,27 @@ function App() {
         });
     }
 
+    function handleError(error) {
+        if (error.response && error.response.status === 404) {
+            setErrorMsg("City not found. Please try again.");
+            setErrorOpacity(1);
+            console.log(error);
+        }
+        else {
+            // setErrorMsg("");
+            // setErrorOpacity(1);
+            console.log(error);
+        }
+    }
+
     return (
         <div>
             <Logo />
+            <Error
+                msg={errorMsg}
+                opacity={errorOpacity}
+                setOpacity={setErrorOpacity}
+                onAdd={handleError}/>
             <Header onAdd={addCard} className="py-5" />
             <ul className="cities">
                 <div className="col-lg-12 row justify-content-center">

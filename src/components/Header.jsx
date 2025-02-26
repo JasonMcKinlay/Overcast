@@ -44,16 +44,6 @@ function Header(props) {
 
     return (
         <div className="top-banner container justify-content-center">
-            <div class="mx-auto col-lg-3 alert alert-primary alert-dismissible fade show" role="alert" style={{ opacity: opacity }}>
-                City name not found.
-                <button 
-                type="button" 
-                class="btn-close" 
-                data-bs-dismiss="alert" 
-                aria-label="Close" 
-                onClick={handleClick}></button>
-            </div>
-            {/* <Slide in={true} direction="down"> */}
             <Fade in={true} timeout={{enter: 1000}}>
             <div className="pb-5 mx-5 mb-5 text-auto col-lg-6 align-items-center justify-content-center mx-auto">
                 <h1 className="heading display-5 fw-bold text-body-emphasis text-center">Let's check the weather.</h1>
@@ -74,7 +64,6 @@ function Header(props) {
                 </div>
             </div>
             </Fade>
-            {/* </Slide> */}
         </div>
     );
 }
