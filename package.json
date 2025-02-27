@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "webpack --mode production",
+    "start": "webpack serve --mode development",
     "dev": "webpack serve --mode development"
   },
   "resolutions": {
