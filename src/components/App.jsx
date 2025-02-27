@@ -4,9 +4,8 @@ import Header from "./Header.jsx";
 import Card from "./Card.jsx";
 import Error from "./Error.jsx";
 import process from "process";
-// import dotenv from "dotenv";
 import axios from "axios";
-// import weatherIcon from "../../public/assets/weatherIcon.svg";
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
@@ -62,12 +61,10 @@ function App() {
         if (error.response && error.response.status === 404 && text != null) {
             setErrorMsg("City not found. Please try again.");
             setErrorOpacity(1);
-            console.log(error);
         }
         else {
             setErrorMsg("Please enter in a city.");
             setErrorOpacity(1);
-            console.log(error);
         }
     }
 

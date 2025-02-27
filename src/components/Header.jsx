@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Slide from "@mui/material/Slide";
+import React, { useState } from "react";
 import Fade from "@mui/material/Fade";
 
 function Header(props) {
     const [text, setText] = useState({
         city: ""
     });
-    // const [opacity, setOpacity] = useState(0);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -20,13 +18,6 @@ function Header(props) {
 
     function submitText(event) {
         event.preventDefault();
-        
-        // if (text.city.trim() === "") {
-        //     // setOpacity(1);
-        //     return;
-        // }
-
-        // setOpacity(0);
         props.onAdd(text);
         setText({ city: "" });
     }
@@ -36,11 +27,6 @@ function Header(props) {
             submitText(event);
         }
     }
-
-    // function handleClick() {
-    //     setOpacity(0);
-    // }
-
 
     return (
         <div className="top-banner container justify-content-center">
