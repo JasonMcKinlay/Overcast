@@ -12,7 +12,7 @@
 
 1. Clone the repo:
    ```sh
-   git clone https://github.com/JasonMcKinlay/WeatherApp.git
+   git clone https://github.com/JasonMcKinlay/Overcast.git
    ```
 2. Install dependencies:
    ```sh
@@ -23,7 +23,7 @@
    npm start
    ```
 
-## Technologies Used 🛠️
+## Technologies Used
 - React.js
 - JavaScript
 - Bootstrap
