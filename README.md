@@ -14,11 +14,15 @@
    ```sh
    git clone https://github.com/JasonMcKinlay/Overcast.git
    ```
-2. Install dependencies:
+2. Navigate to the folder:
+   ```sh
+   cd Overcast
+   ```
+3. Install dependencies:
    ```sh
    npm install
    ```
-3. Start the development server:
+4. Start the development server:
    ```sh
    npm start
    ```
