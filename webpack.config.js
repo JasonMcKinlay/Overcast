@@ -13,8 +13,8 @@ const __dirname = path.dirname(__filename);
 export default {
   entry: "./src/index.js", // Entry point for React app
   output: {
-    path: path.resolve(__dirname, "dist"), // Output directory for production builds
-    filename: "bundle.js",                // JavaScript bundle filename
+    path: path.resolve(__dirname, "build"), 
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -41,7 +41,7 @@ export default {
   resolve: {
     extensions: [".js", ".jsx"],
   },
-  mode: "development",
+  mode: "production",
   devServer: {
     static: [
       {
