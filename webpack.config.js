@@ -6,25 +6,24 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Define __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  entry: "./src/index.js", // Entry point for React app
+  entry: "./src/index.js", 
   output: {
-    path: path.resolve(__dirname, "dist"), // Output directory for production builds
-    filename: "bundle.js",                // JavaScript bundle filename
+    path: path.resolve(__dirname, "build"), 
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/, // Handle .js and .jsx files
-        exclude: /node_modules/, // Exclude node_modules from transpilation
+        test: /\.jsx?$/,
+        exclude: /node_modules/, 
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-react"], // Transpile React
+            presets: ["@babel/preset-react"], 
           },
         },
       },
@@ -41,7 +40,7 @@ export default {
   resolve: {
     extensions: [".js", ".jsx"],
   },
-  mode: "development",
+  mode: "production",
   devServer: {
     static: [
       {
@@ -51,8 +50,8 @@ export default {
         directory: path.resolve(__dirname, "public"),
       }
     ],
-    port: 8080, // Dev server runs on localhost:8080
-    hot: true, // Enable hot module replacement
-    open: true, // Automatically open the browser
+    port: 8080, 
+    hot: true, 
+    open: true, 
   },
 };
