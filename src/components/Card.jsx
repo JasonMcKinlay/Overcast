@@ -1,4 +1,5 @@
 import React from "react";
+import process from "process";
 
 function Card(props) {
 
@@ -6,7 +7,7 @@ function Card(props) {
             <li className="col d-inline-flex px-2 py-5 mb-5 mx-3 text-auto col-lg-3 border rounded-3 bg-body-tertiary justify-content-center">
                 <div className="col-md-4 d-flex flex-column align-items-center justify-content-center">
                     <div>
-                        <img src={props.icon} alt="weather icon" style={{width: "100px", height: "100px"}}></img>
+                        <img src={process.env.PUBLIC_URL + props.icon} alt="weather icon" style={{width: "100px", height: "100px"}}></img>
                     </div>
                     <h4 className="pt-3 text-center">{props.description}</h4>
                 </div>
