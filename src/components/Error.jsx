@@ -20,7 +20,7 @@ function Error(props) {
     }
 
     return (
-        <div class="mx-auto col-lg-3 alert alert-primary alert-dismissible fade show" role="alert" style={{
+        <div className="mx-auto col-lg-3 alert alert-primary alert-dismissible fade show" role="alert" style={{
             opacity: props.opacity,
             height: height,
             overflow: "hidden",
