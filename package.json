@@ -31,5 +31,8 @@
   "resolutions": {
     "process": "^0.11.10"
   },
-  "homepage": "https://github.com/JasonMcKinlay/Overcast.git"
+  "homepage": "https://github.com/JasonMcKinlay/Overcast.git",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
 }
