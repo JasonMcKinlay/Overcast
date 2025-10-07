@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import dotenv from "dotenv";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ export default {
   output: {
     path: path.resolve(__dirname, "build"), 
     filename: "bundle.js",
-    publicPath: "./",
+    publicPath: "/overcast/",
   },
   module: {
     rules: [
@@ -36,6 +37,16 @@ export default {
     }),
     new webpack.DefinePlugin({
       'process.env.REACT_APP_API_KEY': JSON.stringify(process.env.REACT_APP_API_KEY),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { 
+          from: "public",
+          globOptions: {
+            ignore: ["**/index.html"]
+          },
+        },
+      ],
     }),
   ],
   resolve: {
