@@ -7,7 +7,7 @@ function Logo() {
         <div>
             <Fade in={true} timeout={{enter: 1000}}>
                 <div className="py-4 d-flex justify-content-center align-items-center">
-                    <img src="./header.png" style={{width: "10%", height: "10%"}} alt="overcast logo"></img>
+                    <img src="/header.png" style={{width: "10%", height: "10%"}} alt="overcast logo"></img>
                 </div>
             </Fade>
         </div>
