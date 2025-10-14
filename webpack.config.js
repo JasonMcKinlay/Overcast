@@ -15,7 +15,7 @@ export default {
   output: {
     path: path.resolve(__dirname, "build"), 
     filename: "bundle.js",
-    publicPath: "/overcast/",
+    publicPath: "/Overcast/",
   },
   module: {
     rules: [
@@ -54,14 +54,9 @@ export default {
   },
   mode: "production",
   devServer: {
-    static: [
-      {
-        directory: path.resolve(__dirname, "dist"), 
-      },
-      {
-        directory: path.resolve(__dirname, "public"),
-      }
-    ],
+    static: {
+      directory: path.resolve(__dirname, "public"), // Only serve from the public directory
+    },
     port: 8080, 
     hot: true, 
     open: true, 

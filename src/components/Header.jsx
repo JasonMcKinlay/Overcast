@@ -32,7 +32,7 @@ function Header(props) {
         <div className="top-banner container justify-content-center">
             <Fade in={true} timeout={{enter: 1000}}>
             <div className="pb-5 mx-5 mb-5 text-auto col-lg-6 align-items-center justify-content-center mx-auto">
-                <h1 className="heading display-5 fw-bold text-body-emphasis text-center">Let's check the weather.</h1>
+                <h1 className="heading display-5 fw-bold text-body-emphasis text-center pb-3">Let's check the weather.</h1>
                 <div className="d-flex align-items-center justify-content-center">
                     <div className="input-group" style={{width: "50%"}}>
                         <input 
