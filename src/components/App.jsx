@@ -28,7 +28,7 @@ function App() {
             const temp = response.data.main.temp;
             const feelsLike = response.data.main.feels_like;
             const windSpeed = response.data.wind.speed;
-            const icon = `/${response.data.weather[0].icon}.png`;
+            const icon = `./assets/${response.data.weather[0].icon}.png`;
             const description = response.data.weather[0].description;
 
             newCard.city = city;
